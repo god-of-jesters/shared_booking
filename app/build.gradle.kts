@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.sharedbooking"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.sharedbooking"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -34,10 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    dataBinding{
+        enable = true
+    }
 }
 
 dependencies {
-
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.0-alpha05")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.0-alpha05")
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:2.3.0-alpha05")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
