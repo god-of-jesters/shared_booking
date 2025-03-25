@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="phone">#89AC76</color>
+    <color name="top_background">#C4DFB7</color>
+    <color name="chats">#8F8B66</color>
+    <color name="message">#E8EFE4</color>
 </resources>

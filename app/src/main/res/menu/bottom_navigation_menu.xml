@@ -20,5 +20,6 @@
         android:id="@+id/profile_icon"
         android:enabled="true"
         android:icon="@drawable/profile"
-        android:title=""/>
+        android:title=""
+        />
 </menu>
