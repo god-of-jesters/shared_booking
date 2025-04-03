@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sharedbooking.Items.ChatItem
 import com.example.sharedbooking.R
+import com.example.sharedbooking.adapters.ChatAdapter
 import com.example.sharedbooking.databinding.FragmentChatsBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatsFragment : Fragment() {
+    private lateinit var binding: FragmentChatsBinding
+    private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -24,8 +24,27 @@ class ChatsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentChatsBinding = FragmentChatsBinding.inflate(getActivity().getLayoutInflater())
-        setContentView(binding.root)
-        return inflater.inflate(R.layout.fragment_chats, container, false)
+        binding = FragmentChatsBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = binding.recycleViewChats
+
+        val items = listOf(
+            ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя1", "Сообщение"),
+            ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя2", "Сообщение"),
+            ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя3", "Сообщение"),
+            ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя4", "Сообщение")
+        )
+
+        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        recyclerView.adapter = ChatAdapter(items)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }

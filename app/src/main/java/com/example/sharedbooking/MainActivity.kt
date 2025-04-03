@@ -1,6 +1,7 @@
 package com.example.sharedbooking
 
 import android.os.Bundle
+import android.view.Window
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,10 +15,11 @@ import com.example.sharedbooking.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    val navigation: BottomNavigationView  = findViewById(R.id.bottom_navigation)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
+        val navigation: BottomNavigationView  = findViewById(R.id.bottom_navigation)
         navigation.setOnNavigationItemSelectedListener {item ->
             when(item.itemId) {
                 R.id.home_icon -> {

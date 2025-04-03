@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SharedBooking" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.SharedBooking" parent="Base.Theme.SharedBooking" />
+
+    <style name="Theme.MyApp.Light" parent="Theme.Material3.Light">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
 </resources>
