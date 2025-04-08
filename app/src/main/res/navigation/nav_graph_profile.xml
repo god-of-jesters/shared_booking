@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_profile"
+    app:startDestination="@id/profileViewFragment">
+
+    <fragment
+        android:id="@+id/profileViewFragment"
+        android:name="com.example.sharedbooking.fragments.ProfileViewFragment"
+        android:label="ProfileViewFragment" >
+        <action
+            android:id="@+id/action_profileViewFragment_to_editProfile"
+            app:destination="@id/editProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfile"
+        android:name="com.example.sharedbooking.fragments.EditProfile"
+        android:label="EditProfile" >
+        <action
+            android:id="@+id/action_editProfile_to_profileViewFragment"
+            app:destination="@id/profileViewFragment" />
+    </fragment>
+</navigation>
