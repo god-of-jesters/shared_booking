@@ -11,7 +11,7 @@ import com.example.sharedbooking.databinding.FragmentEditProfileBinding
 
 class EditProfile : Fragment() {
     private lateinit var binding: FragmentEditProfileBinding
-
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +27,10 @@ class EditProfile : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        button = binding.saveProfileButton
+        button.setOnClickListener {
+            (parentFragment as? ProfileFragment)?.replaceFragment(ProfileViewFragment())
+        }
     }
 
 }

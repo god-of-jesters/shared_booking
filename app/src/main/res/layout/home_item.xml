@@ -6,8 +6,8 @@
     android:layout_height="290dp"
     android:orientation="vertical"
     android:layout_marginTop="15dp"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
+    android:layout_marginStart="35dp"
+    android:layout_marginEnd="35dp"
     android:background="@drawable/home_item_background">
 
     <LinearLayout
@@ -31,40 +31,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:srcCompat="@tools:sample/avatars"
-                android:scaleType="centerCrop"
-                android:layout_marginEnd="10dp"/>
+                android:scaleType="centerCrop"/>
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="60">
+            android:layout_weight="1000">
 
             <TextView
                 android:id="@+id/fio_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="7dp"
                 android:textStyle="bold"
-                android:textSize="14dp"
+                android:textSize="15dp"
                 android:text="Text"/>
 
             <TextView
                 android:id="@+id/birthday_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:text="Text"/>
 
             <TextView
                 android:id="@+id/pol_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="3dp"
                 android:text="Text"/>
 
         </LinearLayout>
@@ -75,7 +74,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:background="@drawable/heart_checkbox"
-            android:layout_marginEnd="35dp"
+            android:layout_marginEnd="20dp"
             android:button="@null"
             android:layout_gravity="center"/>
 
@@ -97,15 +96,15 @@
                 android:id="@+id/city_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="24dp"
                 android:text="Город"/>
 
             <TextView
                 android:id="@+id/payment_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 android:text="Готов платить"/>
 
@@ -113,7 +112,7 @@
                 android:id="@+id/people_count_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 android:text="Сколько человек"/>
 
@@ -121,7 +120,7 @@
                 android:id="@+id/rooms_count_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 android:text="Сколько комнат"/>
 
@@ -129,7 +128,7 @@
                 android:id="@+id/transport_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 android:text="Доступность транспорта"/>
 
@@ -137,7 +136,7 @@
                 android:id="@+id/time_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 android:text="Длительность"/>
 
@@ -149,7 +148,7 @@
             android:layout_height="50dp"
             android:button="@null"
             android:background="@drawable/check_checkbox"
-            android:layout_marginEnd="35dp"
+            android:layout_marginEnd="20dp"
             android:layout_gravity="center"/>
 
     </LinearLayout>

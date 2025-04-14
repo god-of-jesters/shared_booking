@@ -32,7 +32,7 @@ class ProfileViewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         button = binding.buttonProfile
         button.setOnClickListener {
-            findNavController().navigate(R.id.action_profileViewFragment_to_editProfile)
+            (parentFragment as? ProfileFragment)?.replaceFragment(EditProfile())
         }
     }
 }

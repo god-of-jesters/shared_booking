@@ -38,28 +38,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
 
             <RadioButton
-                android:layout_width="50dp"
-                android:layout_height="25dp"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
                 android:text="1"
                 android:button="@null"
                 android:background="@drawable/custom_radio"
                 android:gravity="center"/>
 
             <RadioButton
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:text="1"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="2"
                 android:button="@null"
                 android:background="@drawable/custom_radio"
                 android:gravity="center"/>
 
             <RadioButton
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:text="1"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="3"
+                android:button="@null"
+                android:background="@drawable/custom_radio"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="4"
+                android:button="@null"
+                android:background="@drawable/custom_radio"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="Студия"
                 android:button="@null"
                 android:background="@drawable/custom_radio"
                 android:gravity="center"/>
@@ -74,6 +91,29 @@
             android:textStyle="bold"
             android:textSize="16dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="—"
+                android:layout_marginStart="10dp"/>
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,6 +122,46 @@
             android:text="Сколько человек в квартире"
             android:textStyle="bold"
             android:textSize="16dp"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="2"
+                android:button="@null"
+                android:background="@drawable/custom_radio"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="3"
+                android:button="@null"
+                android:background="@drawable/custom_radio"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:text="4"
+                android:button="@null"
+                android:background="@drawable/custom_radio"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:text="Не важно"
+                android:button="@null"
+                android:background="@drawable/custom_radio"
+                android:gravity="center"/>
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,6 +172,29 @@
             android:textStyle="bold"
             android:textSize="16dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="—"
+                android:layout_marginStart="10dp"/>
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,6 +203,29 @@
             android:text="Время до транспорта"
             android:textStyle="bold"
             android:textSize="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="—"
+                android:layout_marginStart="10dp"/>
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -110,6 +236,33 @@
             android:textStyle="bold"
             android:textSize="16dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="М"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="20dp"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Ж"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,6 +271,29 @@
             android:text="Возраст соседей"
             android:textStyle="bold"
             android:textSize="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="—"
+                android:layout_marginStart="10dp"/>
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

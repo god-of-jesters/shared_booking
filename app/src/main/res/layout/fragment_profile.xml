@@ -5,17 +5,12 @@
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.ProfileFragment"
         android:background="@color/phone">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="com.example.sharedbooking.fragments.ProfileFragment"
-            app:navGraph="@navigation/nav_graph_profile"/>
     </FrameLayout>
 </layout>
