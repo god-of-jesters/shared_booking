@@ -12,6 +12,19 @@ import com.example.sharedbooking.databinding.FragmentEditProfileBinding
 class EditProfile : Fragment() {
     private lateinit var binding: FragmentEditProfileBinding
     private lateinit var button: Button
+    private val imageUser = binding.imageChat
+    private val fioUser = binding.fio
+    private val ageUser = binding.age
+    private val polUser = binding.pol
+    private val cityUser = binding.city
+    private val cetyUser = binding.socCety
+    private val aboutU = binding.aboutU
+    private val cityApartUser = binding.cityHomeEdit
+    private val payment = binding.paymentHomeEdit
+    private val countRooms = binding.roomsCountEdit
+    private val transportUser = binding.transportEdit
+    private val countPeople = binding.peopleCountEdit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

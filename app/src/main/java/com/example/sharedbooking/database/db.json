@@ -1,0 +1,30 @@
+{
+  "users": {
+    "0": {
+      "name": "Alice",
+      "email": "alice@email.com"
+    },
+    "1": {
+      "name": "Bob",
+      "email": "bob@email.com"
+    }
+  },
+  "chats": {
+    "0": {
+      "user1": "0",
+      "user2": "1",
+      "messages": {
+        "0": {
+          "senderId": 0,
+          "text": "Hello!",
+          "timestamp": 123456789
+        },
+        "1": {
+          "senderId": 1,
+          "text": "Hi!",
+          "timestamp": 123456799
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.sharedbooking.entities.User
 import com.example.sharedbooking.fragments.ChatsFragment
 import com.example.sharedbooking.fragments.FilterFragment
 import com.example.sharedbooking.fragments.HomeFragment
@@ -15,6 +16,10 @@ import com.example.sharedbooking.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private var user: User = User("Пользователь", 0, "Мужской", "Москва", "t.me/, " +
+            "vk.com/", "Просто пользователь", "Москва", 0, 0, 0, 0)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
