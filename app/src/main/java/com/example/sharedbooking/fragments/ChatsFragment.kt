@@ -33,7 +33,7 @@ class ChatsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.recycleViewChats
 
-        val items = listOf(
+        val items = mutableListOf(
             ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя1", "Сообщение"),
             ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя2", "Сообщение"),
             ChatItem(R.drawable.ic_launcher_foreground, "Фамилия Имя3", "Сообщение"),
