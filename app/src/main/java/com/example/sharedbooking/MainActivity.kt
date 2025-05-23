@@ -1,5 +1,7 @@
 package com.example.sharedbooking
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import android.widget.Toast
@@ -15,35 +17,46 @@ import com.example.sharedbooking.fragments.HomeFragment
 import com.example.sharedbooking.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
-    private var user: User = User("Пользователь", 0, "Мужской", "Москва", "t.me/, " +
-            "vk.com/", "Просто пользователь", "Москва", 0, 0, 0, 0)
-
-
+class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        setContentView(R.layout.activity_main)
-        val navigation: BottomNavigationView  = findViewById(R.id.bottom_navigation)
-        navigation.setOnNavigationItemSelectedListener {item ->
-            when(item.itemId) {
-                R.id.home_icon -> {
-                    loadFragment(HomeFragment())
-                    true
+
+        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val isRegistered = prefs.getBoolean("isRegistered", false)
+
+
+        if (!isRegistered) {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+            finish()
+            return
+        } else {
+            setContentView(R.layout.activity_main)
+            val navigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+            navigation.setOnNavigationItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.home_icon -> {
+                        loadFragment(HomeFragment())
+                        true
+                    }
+
+                    R.id.filter_icon -> {
+                        loadFragment(FilterFragment())
+                        true
+                    }
+
+                    R.id.chat_icon -> {
+                        loadFragment(ChatsFragment())
+                        true
+                    }
+
+                    R.id.profile_icon -> {
+                        loadFragment(ProfileFragment())
+                        true
+                    }
+
+                    else -> false
                 }
-                R.id.filter_icon -> {
-                    loadFragment(FilterFragment())
-                    true
-                }
-                R.id.chat_icon -> {
-                    loadFragment(ChatsFragment())
-                    true
-                }
-                R.id.profile_icon -> {
-                    loadFragment(ProfileFragment())
-                    true
-                }
-                else -> false
             }
         }
     }

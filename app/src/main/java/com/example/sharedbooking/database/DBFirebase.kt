@@ -8,12 +8,11 @@ class DBFirebase {
     private val database = FirebaseDatabase.getInstance()
     private val usersRef = database.getReference("users")
     private val chatsRef = database.getReference("chats")
-    private val newUserRef = usersRef.push()
 
     fun newUser(user: User){
-        newUserRef.setValue(user)
+        usersRef.child(user.userId).setValue(user)
+        usersRef.push()
     }
-
 
     fun getUsers(): MutableList<User>{
         val lis = mutableListOf<User>()
@@ -22,9 +21,17 @@ class DBFirebase {
                 val user = ref.getValue(User::class.java)
                 val id = ref.key?.toLongOrNull()
                 Log.d("Firebase", "ID: $id, Name: ${user?.name}")
-                if(user != null) lis.add(user)
+
+                if(user != null) {
+                    user.userId = id.toString()
+                    lis.add(user)
+                }
             }
         }
         return lis
+    }
+
+    fun newChat(user: User){
+        var id = System.currentTimeMillis().toString()
     }
 }

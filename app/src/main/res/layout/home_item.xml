@@ -51,7 +51,7 @@
                 android:text="Text"/>
 
             <TextView
-                android:id="@+id/birthday_home"
+                android:id="@+id/age_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="13dp"
@@ -67,16 +67,6 @@
                 android:text="Text"/>
 
         </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/heart"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:background="@drawable/heart_checkbox"
-            android:layout_marginEnd="20dp"
-            android:button="@null"
-            android:layout_gravity="center"/>
 
     </LinearLayout>
 

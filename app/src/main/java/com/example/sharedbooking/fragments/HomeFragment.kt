@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sharedbooking.Items.HomeItem
 import com.example.sharedbooking.R
 import com.example.sharedbooking.adapters.HomeAdapter
+import com.example.sharedbooking.database.DBFirebase
 import com.example.sharedbooking.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
+    private val db = DBFirebase()
+    private val itemHome = HomeItem()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -32,18 +35,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.recycleViewHome
 
-        val items = listOf(
-            HomeItem(R.drawable.ic_launcher_foreground, "Гурочкина Кира Романовна", "28.04.2007", "Женский", "Москва", 20000, 2, 2, 10, "до конца жизни",
-                heartCheck = false,
-                check = false
-            ),
-            HomeItem(R.drawable.ic_launcher_foreground, "Рыжов Дмитрий Романович", "06.06.2006", "Мужской", "Москва", 20000, 2, 2, 10, "до конца жизни",
-            heartCheck = false,
-            check = false
-            )
-        )
+        val items = mutableListOf<HomeItem>()
+        for(item in db.getUsers()){
+            items.add(itemHome.userToHomeItem(item))
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.adapter = HomeAdapter(items)
     }
+
 }

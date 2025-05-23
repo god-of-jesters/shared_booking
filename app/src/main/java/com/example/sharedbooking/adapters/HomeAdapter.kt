@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sharedbooking.Items.HomeItem
 import com.example.sharedbooking.R
 
-class HomeAdapter (private val itemsList: List<HomeItem>): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class HomeAdapter (private val items: MutableList<HomeItem>): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.image_home)
         val textViewFio: TextView = itemView.findViewById(R.id.fio_home)
-        val textViewBirthday: TextView = itemView.findViewById(R.id.birthday_home)
+        val textViewBirthday: TextView = itemView.findViewById(R.id.age_home)
         val textViewPol: TextView = itemView.findViewById(R.id.pol_home)
         val textViewCity: TextView = itemView.findViewById(R.id.city_home)
         val textViewPayment: TextView = itemView.findViewById(R.id.payment_home)
@@ -22,7 +22,6 @@ class HomeAdapter (private val itemsList: List<HomeItem>): RecyclerView.Adapter<
         val textViewCountRoom: TextView = itemView.findViewById(R.id.rooms_count_home)
         val textViewTransport: TextView = itemView.findViewById(R.id.transport_home)
         val textViewTime: TextView = itemView.findViewById(R.id.time_home)
-        val heartCheckBox: CheckBox = itemView.findViewById(R.id.heart)
         val checkBox: CheckBox = itemView.findViewById(R.id.check)
     }
 
@@ -33,14 +32,14 @@ class HomeAdapter (private val itemsList: List<HomeItem>): RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int {
-        return itemsList.size
+        return items.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = itemsList[position]
+        val item = items[position]
         holder.imageView.setImageResource(item.imageResId)
         holder.textViewFio.text = item.fio
-        holder.textViewBirthday.text = item.birthday
+        holder.textViewBirthday.text = "Возраст: " + item.age
         holder.textViewPol.text = item.pol
         holder.textViewCity.text = "Город: " + item.city
         holder.textViewPayment.text = "До " +item.payment.toString() + " тысяч"
@@ -48,7 +47,14 @@ class HomeAdapter (private val itemsList: List<HomeItem>): RecyclerView.Adapter<
         holder.textViewCountRoom.text = "Комнат в квартире: " + item.countRooms.toString()
         holder.textViewTransport.text = "До " + item.transport.toString() + " минут"
         holder.textViewTime.text = "Снимать до " + item.time + " месяцев"
-        holder.heartCheckBox.isChecked = item.heartCheck
-        holder.checkBox.isChecked = item.check
+
+
+
+        holder.checkBox.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                items.removeAt(position)
+                notifyItemRemoved(position)
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ import com.example.sharedbooking.ChatPeople
 import com.example.sharedbooking.Items.ChatItem
 import com.example.sharedbooking.R
 
-class ChatAdapter (private val itemsList: List<ChatItem>): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
+class ChatAdapter (private val items: MutableList<ChatItem>): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.image_chat)
         val textViewFi: TextView = itemView.findViewById(R.id.fi_chat)
@@ -19,7 +19,7 @@ class ChatAdapter (private val itemsList: List<ChatItem>): RecyclerView.Adapter<
 
         init {
             itemView.setOnClickListener {
-                val item = itemsList[adapterPosition]
+                val item = items[adapterPosition]
                 val intent = Intent(itemView.context, ChatPeople::class.java)
                 intent.putExtra("item_fio", item.fi)
                 itemView.context.startActivity(intent)
@@ -34,11 +34,11 @@ class ChatAdapter (private val itemsList: List<ChatItem>): RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int {
-        return itemsList.size
+        return items.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = itemsList[position]
+        val item = items[position]
         holder.imageView.setImageResource(item.imageResId)
         holder.textViewFi.text = item.fi
         holder.textViewMessage.text = item.message
