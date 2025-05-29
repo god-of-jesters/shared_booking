@@ -47,6 +47,7 @@ class HomeFragment : Fragment() {
             if(CurrentUser.user!! != item){
                 items.add(itemHome.userToHomeItem(item))
             }
+            println(item.userId)
         }
 
         recyclerView.layoutManager = LinearLayoutManager(view.context)

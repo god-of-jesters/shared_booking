@@ -7,55 +7,11 @@
     android:padding="24dp"
     tools:context=".RegistrationActivity">
 
-    <EditText
-        android:id="@+id/regName"
-        android:hint="Имя"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
 
-    <EditText
-        android:id="@+id/regAge"
-        android:hint="Возраст"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.sharedbooking.RegistrationFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent" />
 
-    <EditText
-        android:id="@+id/regCity"
-        android:hint="Город"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
-
-    <EditText
-        android:id="@+id/regEmail"
-        android:hint="Эл. адрес"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
-
-    <EditText
-        android:id="@+id/regPassword"
-        android:hint="Пароль"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/textWrong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="#ff0000"
-        android:text="Заполните: "
-        android:layout_marginTop="10dp"
-        android:visibility="invisible"/>
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:text="Зарегистрироваться"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
 </LinearLayout>

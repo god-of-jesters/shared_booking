@@ -33,4 +33,22 @@ class DBFirebase {
         var id = System.currentTimeMillis().toString()
         chatsRef.child(id).setValue("Тадаааам")
     }
+
+    fun checkUserIn(emal: String, password: String): Boolean{
+        var f = false
+        usersRef.get().addOnSuccessListener { snapshot ->
+            for (ref in snapshot.children) {
+                val user = ref.getValue(User::class.java)
+                val id = ref.key?.toLongOrNull()
+                if (user != null) {
+                    user.userId = id!!
+                    if(user.email == emal && password == user.password){
+                        f = true
+                        break
+                    }
+                }
+            }
+        }
+        return f
+    }
 }
