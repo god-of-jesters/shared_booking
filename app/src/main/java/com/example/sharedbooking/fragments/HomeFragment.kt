@@ -7,17 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sharedbooking.CurrentUser
 import com.example.sharedbooking.Items.HomeItem
 import com.example.sharedbooking.R
 import com.example.sharedbooking.adapters.HomeAdapter
 import com.example.sharedbooking.database.DBFirebase
 import com.example.sharedbooking.databinding.FragmentHomeBinding
+import com.example.sharedbooking.entities.User
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
     private val db = DBFirebase()
     private val itemHome = HomeItem()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -36,8 +39,14 @@ class HomeFragment : Fragment() {
         recyclerView = binding.recycleViewHome
 
         val items = mutableListOf<HomeItem>()
-        for(item in db.getUsers()){
-            items.add(itemHome.userToHomeItem(item))
+        val userList = mutableListOf<User>()
+        db.getUsers{ users ->
+            userList.addAll(users)
+        }
+        for(item in userList){
+            if(CurrentUser.user!! != item){
+                items.add(itemHome.userToHomeItem(item))
+            }
         }
 
         recyclerView.layoutManager = LinearLayoutManager(view.context)

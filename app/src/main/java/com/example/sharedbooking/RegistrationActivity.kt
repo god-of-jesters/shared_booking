@@ -22,6 +22,7 @@ class RegistrationActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         supportActionBar?.hide()
         setContentView(R.layout.registration_activity)
         editName = findViewById(R.id.regName)
@@ -45,12 +46,27 @@ class RegistrationActivity: AppCompatActivity() {
                     if (age.isNotEmpty()){
                         if (city.isNotEmpty()){
                             if (password.isNotEmpty()){
-                                val userId = System.currentTimeMillis().toString()
+                                val userId = System.currentTimeMillis()
                                 val user = User(name, email, password = password, userId = userId)
                                 db.newUser(user)
-
+                                CurrentUser.user = user
                                 val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
                                 prefs.edit().putBoolean("isRegistered", true).apply()
+                                prefs.edit().putString("name" , user.name).apply()
+                                prefs.edit().putString("email" , user.email).apply()
+                                prefs.edit().putInt("age" , user.age).apply()
+                                prefs.edit().putString("pol" , user.pol).apply()
+                                prefs.edit().putString("city" , user.city).apply()
+                                prefs.edit().putString( "cety" , user.cety).apply()
+                                prefs.edit().putString("about" , user.about).apply()
+                                prefs.edit().putString("cityApart" , user.cityApart).apply()
+                                prefs.edit().putInt("payment" , user.payment).apply()
+                                prefs.edit().putInt("countRooms" , user.countRooms).apply()
+                                prefs.edit().putInt("transport" , user.transport).apply()
+                                prefs.edit().putInt("countPeople" , user.countPeople).apply()
+                                prefs.edit().putString("password" , user.password).apply()
+                                prefs.edit().putString("time" , user.time).apply()
+                                prefs.edit().putLong("userId" , user.userId).apply()
 
                                 val intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)

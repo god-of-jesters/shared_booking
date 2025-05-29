@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "826675799742",
+    "firebase_url": "https://sharedbooking-ce1e2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "sharedbooking-ce1e2",
+    "storage_bucket": "sharedbooking-ce1e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826675799742:android:a7c3553e8805ba698fe0ef",
+        "android_client_info": {
+          "package_name": "com.example.sharedbooking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx3SUTC_h0EPoQEuDq3-r20ddJBC_OcM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

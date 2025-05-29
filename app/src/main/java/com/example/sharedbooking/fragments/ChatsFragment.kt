@@ -44,7 +44,4 @@ class ChatsFragment : Fragment() {
         recyclerView.adapter = ChatAdapter(items)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
 }

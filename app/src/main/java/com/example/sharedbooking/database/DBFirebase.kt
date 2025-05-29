@@ -6,32 +6,31 @@ import com.google.firebase.database.FirebaseDatabase
 
 class DBFirebase {
     private val database = FirebaseDatabase.getInstance()
-    private val usersRef = database.getReference("users")
     private val chatsRef = database.getReference("chats")
+    private val usersRef = database.getReference("users")
+
 
     fun newUser(user: User){
-        usersRef.child(user.userId).setValue(user)
-        usersRef.push()
+        usersRef.child(user.userId.toString()).setValue(user.toMap())
     }
 
-    fun getUsers(): MutableList<User>{
-        val lis = mutableListOf<User>()
+    fun getUsers(callback: (List<User>) -> Unit){
         usersRef.get().addOnSuccessListener { snapshot ->
-            for(ref in snapshot.children){
+            val list = mutableListOf<User>()
+            for (ref in snapshot.children) {
                 val user = ref.getValue(User::class.java)
                 val id = ref.key?.toLongOrNull()
-                Log.d("Firebase", "ID: $id, Name: ${user?.name}")
-
-                if(user != null) {
-                    user.userId = id.toString()
-                    lis.add(user)
+                if (user != null) {
+                    user.userId = id!!
+                    list.add(user)
                 }
             }
+            callback(list)
         }
-        return lis
     }
 
-    fun newChat(user: User){
+    fun newChat(){
         var id = System.currentTimeMillis().toString()
+        chatsRef.child(id).setValue("Тадаааам")
     }
 }

@@ -30,33 +30,38 @@ class MainActivity: AppCompatActivity() {
             startActivity(Intent(this, RegistrationActivity::class.java))
             finish()
             return
-        } else {
-            setContentView(R.layout.activity_main)
-            val navigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
-            navigation.setOnNavigationItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.home_icon -> {
-                        loadFragment(HomeFragment())
-                        true
-                    }
+        }
+        setContentView(R.layout.activity_main)
 
-                    R.id.filter_icon -> {
-                        loadFragment(FilterFragment())
-                        true
-                    }
+        val openFragment = intent.getStringExtra("openFragment")
+        if (openFragment == "chats") {
+            loadFragment(ChatsFragment())
+        }
 
-                    R.id.chat_icon -> {
-                        loadFragment(ChatsFragment())
-                        true
-                    }
-
-                    R.id.profile_icon -> {
-                        loadFragment(ProfileFragment())
-                        true
-                    }
-
-                    else -> false
+        val navigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        navigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home_icon -> {
+                    loadFragment(HomeFragment())
+                    true
                 }
+
+                R.id.filter_icon -> {
+                    loadFragment(FilterFragment())
+                    true
+                }
+
+                R.id.chat_icon -> {
+                    loadFragment(ChatsFragment())
+                    true
+                }
+
+                R.id.profile_icon -> {
+                    loadFragment(ProfileFragment())
+                    true
+                }
+
+                else -> false
             }
         }
     }
