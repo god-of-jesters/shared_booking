@@ -50,8 +50,8 @@ class HomeAdapter (private val items: MutableList<HomeItem>): RecyclerView.Adapt
 
         holder.checkBox.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
-                items.removeAt(position-1)
-                notifyItemRemoved(position-1)
+                items.removeAt(position)
+                notifyItemRemoved(position)
                 DataBase.newChat(items[position-1].user.userId)
             }
         }

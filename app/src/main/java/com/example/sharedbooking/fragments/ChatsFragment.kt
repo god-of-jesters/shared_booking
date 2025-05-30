@@ -5,6 +5,7 @@ import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,24 +40,28 @@ class ChatsFragment : Fragment() {
 
         DataBase.getMyChats{chats ->
             val items = mutableListOf<ChatItem>()
-            var name = ""
-            for(item in chats){
-                var i = ChatItem(userId = item.userId2, fi = name, item.messages.last().text, messages = item.messages)
-                if (item.userId1 == CurrentUser.user!!.userId){
-                    DataBase.findName(item.userId2){it ->
-                        name = it
+            var loadedCount = 0
+
+            for (item in chats) {
+                val opponentId = if (item.userId1 == CurrentUser.user!!.userId) item.userId2 else item.userId1
+
+                DataBase.findName(opponentId) { name ->
+                    items.add(
+                        ChatItem(
+                            userId = opponentId,
+                            fi = name,
+                            message = item.messages.last().text,
+                            messages = item.messages
+                        )
+                    )
+
+                    loadedCount++
+                    if (loadedCount == chats.size) {
+                        recyclerView.layoutManager = LinearLayoutManager(view.context)
+                        recyclerView.adapter = ChatAdapter(items)
                     }
-                    i = ChatItem(userId = item.userId2, fi = name, item.messages.last().text, messages = item.messages)
-                }else{
-                    DataBase.findName(item.userId1){it ->
-                        name = it
-                    }
-                    i = ChatItem(userId = item.userId1, fi = name, item.messages.last().text, messages = item.messages)
                 }
-                items.add(i)
             }
-            recyclerView.layoutManager = LinearLayoutManager(view.context)
-            recyclerView.adapter = ChatAdapter(items)
         }
     }
 

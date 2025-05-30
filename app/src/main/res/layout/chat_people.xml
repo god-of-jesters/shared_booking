@@ -71,7 +71,7 @@
             android:layout_weight="10"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:hint="Сообщение" />
 
         <Button
             android:id="@+id/message_send"

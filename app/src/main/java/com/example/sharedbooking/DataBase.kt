@@ -100,7 +100,37 @@ object DataBase {
         usersRef.child(user.userId.toString()).setValue(user)
     }
 
+    fun addNewMessage(id: Long, text: String){
+        findChatId(id){chatId ->
+            val messageRef = FirebaseDatabase.getInstance()
+                .getReference("chats")
+                .child(chatId!!)
+                .child("messages")
 
+            messageRef.child(CurrentUser.user!!.userId.toString()).setValue(text)
+        }
+
+    }
+
+    private fun findChatId(receiverId: Long, callback: (String?) -> Unit) {
+        val currentUserId = CurrentUser.user!!.userId
+        chatsRef.get().addOnSuccessListener { snapshot ->
+            for (ref in snapshot.children) {
+                val chat = ref.getValue(SuppotClass::class.java)
+                if (chat != null) {
+                    val isMatch = (chat.userId1 == currentUserId && chat.userId2 == receiverId) ||
+                            (chat.userId2 == currentUserId && chat.userId1 == receiverId)
+                    if (isMatch) {
+                        callback(ref.key) // это и есть chatId
+                        return@addOnSuccessListener
+                    }
+                }
+            }
+            callback(null) // чат не найден
+        }.addOnFailureListener {
+            callback(null)
+        }
+    }
 }
 
 class SuppotClass (val userId1: Long = 0,
