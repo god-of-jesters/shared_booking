@@ -1,18 +1,18 @@
 package com.example.sharedbooking.entities
 
 data class User(
-    val name: String = "",
+    var name: String = "",
     val email: String = "",
-    val age: Int = 0,
-    val pol: String = "",
-    val city: String = "",
-    val cety: String = "",
-    val about: String = "",
-    val cityApart: String = "",
-    val payment: Int = 0,
-    val countRooms: Int = 0,
-    val transport: Int = 0,
-    val countPeople: Int = 0,
+    var age: Int = 0,
+    var pol: String = "",
+    var city: String = "",
+    var cety: String = "",
+    var about: String = "",
+    var cityApart: String = "",
+    var payment: Int = 0,
+    var countRooms: Int = 0,
+    var transport: Int = 0,
+    var countPeople: Int = 0,
     val password: String = "",
     var userId: Long = 0L,
     val time: String = ""
@@ -35,5 +35,9 @@ data class User(
             "time" to this.time,
             "userId" to this.userId
         )
+    }
+
+    override fun toString(): String {
+        return "Имя: ${this.name} \nПочта: ${this.email}"
     }
 }

@@ -16,6 +16,7 @@ import com.example.sharedbooking.fragments.FilterFragment
 import com.example.sharedbooking.fragments.HomeFragment
 import com.example.sharedbooking.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
 
 class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,8 @@ class MainActivity: AppCompatActivity() {
             startActivity(Intent(this, RegistrationActivity::class.java))
             finish()
             return
+        }else{
+            CurrentUser.user = getUserFromPrefs()
         }
         setContentView(R.layout.activity_main)
 
@@ -71,5 +74,16 @@ class MainActivity: AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.fragmentContainerView, fragment)
             .commit()
+    }
+
+    private fun getUserFromPrefs(): User? {
+        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val userJson = prefs.getString("user_json", null)
+        return if (userJson != null) {
+            gson.fromJson(userJson, User::class.java)
+        } else {
+            null
+        }
     }
 }

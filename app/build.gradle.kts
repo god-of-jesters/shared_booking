@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.10.1")
+
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.0-alpha05")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.0-alpha05")
     implementation("androidx.navigation:navigation-dynamic-features-fragment:2.3.0-alpha05")

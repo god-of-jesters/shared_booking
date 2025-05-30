@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sharedbooking.ChatPeople
 import com.example.sharedbooking.Items.ChatItem
 import com.example.sharedbooking.R
+import com.google.gson.Gson
 
 class ChatAdapter (private val items: MutableList<ChatItem>): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,6 +23,9 @@ class ChatAdapter (private val items: MutableList<ChatItem>): RecyclerView.Adapt
                 val item = items[adapterPosition]
                 val intent = Intent(itemView.context, ChatPeople::class.java)
                 intent.putExtra("item_fio", item.fi)
+                val gson = Gson()
+                val json = gson.toJson(items[adapterPosition].messages)
+                intent.putExtra("messages", json)
                 itemView.context.startActivity(intent)
             }
         }
@@ -39,7 +43,6 @@ class ChatAdapter (private val items: MutableList<ChatItem>): RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.imageView.setImageResource(item.imageResId)
         holder.textViewFi.text = item.fi
         holder.textViewMessage.text = item.message
     }

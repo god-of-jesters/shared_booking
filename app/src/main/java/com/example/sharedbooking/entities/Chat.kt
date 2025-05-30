@@ -1,4 +1,7 @@
 package com.example.sharedbooking.entities
 
-class Chat(val chatId: Int, val userId1: Int, val userId2: Int, val messages: List<Message>) {
-}
+data class Chat(
+    val userId1: Long = 0,
+    val userId2: Long = 0,
+    val messages: List<Message> = mutableListOf()
+)

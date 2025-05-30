@@ -7,6 +7,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sharedbooking.DataBase
 import com.example.sharedbooking.Items.HomeItem
 import com.example.sharedbooking.R
 
@@ -36,10 +37,9 @@ class HomeAdapter (private val items: MutableList<HomeItem>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = items[position]
-        holder.imageView.setImageResource(item.imageResId)
-        holder.textViewFio.text = item.fio
-        holder.textViewBirthday.text = "Возраст: " + item.age
+        val item = items[position].user
+        holder.textViewFio.text = item.name
+        holder.textViewBirthday.text = "Возраст: " + item.age.toString()
         holder.textViewPol.text = item.pol
         holder.textViewCity.text = "Город: " + item.city
         holder.textViewPayment.text = "До " +item.payment.toString() + " тысяч"
@@ -48,12 +48,11 @@ class HomeAdapter (private val items: MutableList<HomeItem>): RecyclerView.Adapt
         holder.textViewTransport.text = "До " + item.transport.toString() + " минут"
         holder.textViewTime.text = "Снимать до " + item.time + " месяцев"
 
-
-
         holder.checkBox.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
-                items.removeAt(position)
-                notifyItemRemoved(position)
+                items.removeAt(position-1)
+                notifyItemRemoved(position-1)
+                DataBase.newChat(items[position-1].user.userId)
             }
         }
     }
